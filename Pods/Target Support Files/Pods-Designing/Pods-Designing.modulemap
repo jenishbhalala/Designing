@@ -1,0 +1,6 @@
+framework module Pods_Designing {
+  umbrella header "Pods-Designing-umbrella.h"
+
+  export *
+  module * { export * }
+}

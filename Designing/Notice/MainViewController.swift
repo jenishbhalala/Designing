@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+
 struct MainRequest{
     var Profilepic : String
     var Username : String

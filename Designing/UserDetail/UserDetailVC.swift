@@ -23,7 +23,7 @@ class UserDetailVC: UIViewController,UICollectionViewDataSource,UICollectionView
         collection(image: "notice_icon",detaillbl:"Notices"),
         collection(image: "progress_icon",detaillbl:"Progress"),
         collection(image: "Network_icon",detaillbl:"Networks"),
-        collection(image: "Notices_icon",detaillbl:"Notices"),
+        collection(image: "Notices_icon",detaillbl:"Suggested Search"),
         collection(image: "Media_icon",detaillbl:"Media"),
         collection(image: "FindaMentor_icon",detaillbl:"Find a Mentor"),]
 
@@ -101,18 +101,22 @@ class UserDetailVC: UIViewController,UICollectionViewDataSource,UICollectionView
               print("progress print")
             }
         else if indexPath.row == 2{
-            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "SuggestedNetworkVC") as! SuggestedNetworkVC
+            self.navigationController?.pushViewController(controller, animated: true)
             
             print("network print")
             }
         else if indexPath.row == 3{
             
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "SuggestedSearchVC") as! SuggestedSearchVC
+            self.navigationController?.pushViewController(controller, animated: true)
             
             print("notices print")
             }
         else if indexPath.row == 4{
             
-            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "MediaPageVC") as! MediaPageVC
+            self.navigationController?.pushViewController(controller, animated: true)
             print("Media print")
             }
         else if indexPath.row == 5{
@@ -142,7 +146,7 @@ extension UserDetailVC: UIGestureRecognizerDelegate {
         let point = touch.location(in: CollectionView)
         if let indexPath = CollectionView?.indexPathForItem(at: point),
             let cell = CollectionView?.cellForItem(at: indexPath) {
-            return touch.location(in: cell).y > 50
+            return touch.location(in: cell).y > 5
         }
         
         return false
